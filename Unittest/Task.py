@@ -14,9 +14,9 @@ class TestStringOperations(unittest.TestCase):
 
     def test_string_formatting(self):
         # Test case for string formatting
-        name = "Alice"
-        age = 30
-        self.assertEqual("My name is {} and I am {} years old.".format(name, age), "My name is Alice and I am 30 years old.")
+        name = "Rahul"
+        age = 22
+        self.assertEqual("My name is {} and I am {} years old.".format(name, age), "My name is Rahul and I am 22 years old.")
 
     def test_string_manipulation_methods(self):
         # Test cases for string manipulation methods
