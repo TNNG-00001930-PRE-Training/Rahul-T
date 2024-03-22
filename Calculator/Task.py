@@ -1,3 +1,5 @@
+import unittest
+
 def add(x, y):
     return x + y
 
@@ -12,14 +14,6 @@ def divide(x, y):
         return "Error: Division by zero!"
     else:
         return x / y
-
-def get_valid_number(prompt):
-    while True:
-        try:
-            num = float(input(prompt))
-            return num
-        except ValueError:
-            print("Error: Please enter a valid number.")
 
 def calculator():
     while True:
@@ -37,19 +31,41 @@ def calculator():
             num2 = get_valid_number("Enter second number: ")
 
             if choice == '1':
-                print("Result:", add(num1, num2))
+                return add(num1, num2)
             elif choice == '2':
-                print("Result:", subtract(num1, num2))
+                return subtract(num1, num2)
             elif choice == '3':
-                print("Result:", multiply(num1, num2))
+                return multiply(num1, num2)
             elif choice == '4':
-                print("Result:", divide(num1, num2))
+                return divide(num1, num2)
         elif choice == '5':
             print("Exiting the calculator.")
             break
         else:
             print("Error: Invalid input! Please enter a valid option.")
 
+def get_valid_number(prompt):
+    while True:
+        try:
+            num = float(input(prompt))
+            return num
+        except ValueError:
+            print("Error: Please enter a valid number.")
+
+class TestCalculator(unittest.TestCase):
+
+    def test_addition(self):
+        self.assertEqual(calculator(), 8)
+
+    def test_subtraction(self):
+        self.assertEqual(calculator(), 2)
+
+    def test_multiplication(self):
+        self.assertEqual(calculator(), 15)
+
+    def test_division(self):
+        self.assertEqual(calculator(), 5)
 
 if __name__ == "__main__":
-    calculator()
+    unittest.main(argv=[''], exit=False)
+
